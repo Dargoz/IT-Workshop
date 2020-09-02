@@ -6,19 +6,23 @@
     android:padding="12dp"
     android:id="@+id/movie_container"
     xmlns:tools="http://schemas.android.com/tools">
+
     <TextView
         android:id="@+id/movie_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        android:text="Avenger"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
         tools:text="Avenger"/>
 
-    <TextView
-        android:id="@+id/description"
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/movie_image"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/movie_title"
-        tools:text="Lorem ipsum dolor sit amet. Consectectur adipising elit."
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

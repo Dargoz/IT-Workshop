@@ -4,6 +4,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.itswork.MovieItemClickListener;
 import com.example.itswork.R;
 import com.example.itswork.models.Movies;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,14 +54,14 @@ public class MovieRecyclerViewAdapter extends RecyclerView.Adapter<MovieRecycler
     class MovieItemViewHolder extends RecyclerView.ViewHolder {
         ConstraintLayout constraintLayout;
         TextView movieTitleText;
-        TextView movieDescText;
+        ImageView movieImage;
 
 
         public MovieItemViewHolder(@NonNull View itemView) {
             super(itemView);
             constraintLayout = itemView.findViewById(R.id.movie_container);
             movieTitleText = itemView.findViewById(R.id.movie_title);
-            movieDescText = itemView.findViewById(R.id.description);
+            movieImage = itemView.findViewById(R.id.movie_image);
         }
 
         public void bindData(final int position) {
@@ -72,7 +74,7 @@ public class MovieRecyclerViewAdapter extends RecyclerView.Adapter<MovieRecycler
                 }
             });
             movieTitleText.setText(dataList.get(position).getTitle());
-            movieDescText.setText(dataList.get(position).getDesc());
+            Picasso.get().load(dataList.get(position).getPosterUrl()).into(movieImage);
         }
     }
 }
